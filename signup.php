@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                         native VARCHAR(150) NOT NULL,
                         target VARCHAR(150) NOT NULL,
-                        date_last TIMESTAMP DEFAULT current_timestamp(),
+                        date_last DATE DEFAULT current_timestamp(),
                         tier INT(3) DEFAULT -1,
                         days_repeat INT(3) DEFAULT 0,
                         correct TINYINT DEFAULT 0)");
