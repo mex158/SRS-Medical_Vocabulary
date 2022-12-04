@@ -5,7 +5,7 @@ $table_name="words_" . $_SESSION["username"];
 $rand_name="rando_" . $_SESSION["username"];
 session_write_close();
 
-$stmt=$conn->prepare("SELECT native, target, tier FROM $table_name WHERE correct=0 OR (DATE_ADD(date_last, INTERVAL days_repeat DAY)<NOW()) ORDER BY RAND() LIMIT 1");
+$stmt=$conn->prepare("SELECT native, target, tier FROM $table_name WHERE DATE_ADD(date_last, INTERVAL days_repeat DAY)<NOW() OR correct=0 ORDER BY RAND() LIMIT 1");
 $stmt->execute();
 $result=$stmt->get_result();
 if($result){
